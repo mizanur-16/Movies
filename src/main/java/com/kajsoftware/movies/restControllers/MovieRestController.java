@@ -1,12 +1,13 @@
 package com.kajsoftware.movies.restControllers;
 
 import com.kajsoftware.movies.entities.Movie;
+import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
 import com.kajsoftware.movies.service.MovieService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,18 @@ public class MovieRestController {
     @GetMapping("/movies/{id}")
     public Optional<Movie> getMovie(@PathVariable int id) {
         return this.movieService.findMovieById(id);
+    }
+
+    @PostMapping("/movies")
+    ResponseEntity<Movie> createMovie(@RequestBody MovieRequest reqMovie) {
+        System.out.println("hi: " + reqMovie.toString());
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/movies").toUriString());
+        return ResponseEntity.created(uri).body(this.movieService.saveMovie(reqMovie));
+//        Movie newMovie = new Movie(reqMovie.getTitle(), reqMovie.getReleaseYear(), reqMovie.getDescription());
+
+//        Movie dbMovie = this.movieService.createMovie(newMovie);
+//        return dbMovie;
+
     }
 
 

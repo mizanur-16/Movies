@@ -1,18 +1,27 @@
 package com.kajsoftware.movies.service;
 
+import com.kajsoftware.movies.dao.GenreRepository;
 import com.kajsoftware.movies.dao.MovieRepository;
+import com.kajsoftware.movies.entities.Genre;
 import com.kajsoftware.movies.entities.Movie;
 import com.kajsoftware.movies.restControllers.exception_handler.MovieNotFoundException;
+import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
+import org.hibernate.Length;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MovieServiceImpl implements MovieService{
 
     public MovieRepository movieRepository;
+    public GenreRepository genreRepository;
 
-    public MovieServiceImpl(MovieRepository movieRepository) {
+    public MovieServiceImpl(MovieRepository movieRepository, GenreRepository genreRepository) {
         this.movieRepository = movieRepository;
+        this.genreRepository = genreRepository;
     }
 
     @Override
@@ -35,8 +44,36 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public Movie createMovie(Movie movie) {
-        return this.movieRepository.save(movie);
+    public Movie saveMovie(MovieRequest requestBody) {
+        Movie newMovie = new Movie();
+        newMovie.setTitle(requestBody.getTitle());
+        newMovie.setDescription(requestBody.getDescription());
+        newMovie.setReleaseYear(requestBody.getReleaseYear());
+
+        List<Genre> genres = new ArrayList<>();
+
+        if (!requestBody.getGenres().isEmpty()) {
+            for (String genreName : requestBody.getGenres()) {
+                // CHECKING IF THE GENRE EXISTS IN THE DATABASE
+                Genre existingGenre = this.genreRepository.findByName(genreName);
+
+                if (existingGenre != null) {
+                    // IF EXISTS IN THE DATABASE
+                    genres.add(existingGenre);
+                } else {
+                    // IF NOT EXISTS
+                    Genre newGenre = new Genre();
+                    newGenre.setName(genreName);
+
+                    this.genreRepository.save(newGenre);
+                    genres.add(newGenre);
+                }
+            }
+        }
+
+        newMovie.setGenres(genres);
+
+        return this.movieRepository.save(newMovie);
     }
 
     @Override

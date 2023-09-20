@@ -1,6 +1,7 @@
 package com.kajsoftware.movies.service;
 
 import com.kajsoftware.movies.entities.Movie;
+import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +9,6 @@ import java.util.Optional;
 public interface MovieService {
     List<Movie> findAllMovies();
     Optional<Movie> findMovieById(int id);
-    Movie createMovie(Movie movie);
+    Movie saveMovie(MovieRequest movie);
     String deleteMovieById(int id);
 }
