@@ -1,9 +1,12 @@
 package com.kajsoftware.movies.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "movie")
@@ -29,6 +32,7 @@ public class Movie {
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
+    @JsonIgnore  // IT INDICATES THAT THE FOLLOWING PROPERTY SHOULD BE IGNORED DURING SERIALIZATION
     private List<Genre> genres;
 
     public Movie() {
@@ -38,6 +42,12 @@ public class Movie {
         this.title = title;
         this.releaseYear = releaseYear;
         this.description = description;
+    }
+
+    @JsonProperty("genres") // @JsonProperty TO SPECIFY THAT IT SHOULD BE SERIALIZED AS "genres"
+    public List<String> getGenreNames() {
+        // Extract genre names from the list of Genre objects
+        return genres.stream().map(Genre::getName).collect(Collectors.toList());
     }
 
     public int getId() {
