@@ -10,6 +10,9 @@ public class MovieRequest {
     private int releaseYear;
     private List<String> genres;
 
+    public MovieRequest() {
+    }
+
     public String getTitle() {
         return title;
     }

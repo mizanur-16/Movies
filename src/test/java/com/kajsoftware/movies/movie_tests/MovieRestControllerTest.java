@@ -1,12 +1,13 @@
 package com.kajsoftware.movies.movie_tests;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions.*;
 
-public class MovieServiceImplTest {
+public class MovieRestControllerTest {
+
+
 
     @Test
-    void test() {
+    void createMovieTest() {
 
     }
 }

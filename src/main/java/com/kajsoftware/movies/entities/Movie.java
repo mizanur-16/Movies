@@ -15,7 +15,7 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "title")
     private String title;
@@ -50,7 +50,7 @@ public class Movie {
         return genres.stream().map(Genre::getName).collect(Collectors.toList());
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

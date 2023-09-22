@@ -27,20 +27,15 @@ public class MovieRestController {
     }
 
     @GetMapping("/movies/{id}")
-    public Optional<Movie> getMovie(@PathVariable int id) {
+    public Optional<Movie> getMovieDetail(@PathVariable int id) {
         return this.movieService.findMovieById(id);
     }
 
     @PostMapping("/movies")
-    ResponseEntity<Movie> createMovie(@RequestBody MovieRequest reqMovie) {
+    public ResponseEntity<Movie> createMovie(@RequestBody MovieRequest reqMovie) {
         System.out.println("hi: " + reqMovie.toString());
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/movies").toUriString());
         return ResponseEntity.created(uri).body(this.movieService.saveMovie(reqMovie));
-//        Movie newMovie = new Movie(reqMovie.getTitle(), reqMovie.getReleaseYear(), reqMovie.getDescription());
-
-//        Movie dbMovie = this.movieService.createMovie(newMovie);
-//        return dbMovie;
-
     }
 
 
