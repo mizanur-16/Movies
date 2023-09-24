@@ -1,6 +1,4 @@
-package com.kajsoftware.movies.restControllers.request_body;
-
-import org.springframework.lang.NonNull;
+package com.kajsoftware.movies.controllers.request_body;
 
 import java.util.List;
 

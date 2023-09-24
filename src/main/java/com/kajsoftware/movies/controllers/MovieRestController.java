@@ -1,7 +1,7 @@
-package com.kajsoftware.movies.restControllers;
+package com.kajsoftware.movies.controllers;
 
 import com.kajsoftware.movies.entities.Movie;
-import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
+import com.kajsoftware.movies.controllers.request_body.MovieRequest;
 import com.kajsoftware.movies.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

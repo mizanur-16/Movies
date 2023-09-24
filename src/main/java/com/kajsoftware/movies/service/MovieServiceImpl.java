@@ -4,9 +4,8 @@ import com.kajsoftware.movies.dao.GenreRepository;
 import com.kajsoftware.movies.dao.MovieRepository;
 import com.kajsoftware.movies.entities.Genre;
 import com.kajsoftware.movies.entities.Movie;
-import com.kajsoftware.movies.restControllers.exception_handler.MovieNotFoundException;
-import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
-import org.hibernate.Length;
+import com.kajsoftware.movies.controllers.exception_handler.MovieNotFoundException;
+import com.kajsoftware.movies.controllers.request_body.MovieRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

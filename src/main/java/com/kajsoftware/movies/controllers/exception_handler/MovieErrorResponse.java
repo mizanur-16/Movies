@@ -1,4 +1,4 @@
-package com.kajsoftware.movies.restControllers.exception_handler;
+package com.kajsoftware.movies.controllers.exception_handler;
 
 public class MovieErrorResponse {
 

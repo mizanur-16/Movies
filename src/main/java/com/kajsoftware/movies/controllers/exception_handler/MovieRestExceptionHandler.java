@@ -1,4 +1,4 @@
-package com.kajsoftware.movies.restControllers.exception_handler;
+package com.kajsoftware.movies.controllers.exception_handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,4 @@
-package com.kajsoftware.movies.restControllers.exception_handler;
-
-import javax.management.InstanceNotFoundException;
+package com.kajsoftware.movies.controllers.exception_handler;
 
 public class MovieNotFoundException extends  RuntimeException{
 

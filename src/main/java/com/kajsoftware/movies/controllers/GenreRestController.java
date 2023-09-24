@@ -1,7 +1,6 @@
-package com.kajsoftware.movies.restControllers;
+package com.kajsoftware.movies.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kajsoftware.movies.entities.Genre;
 import com.kajsoftware.movies.service.GenreService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

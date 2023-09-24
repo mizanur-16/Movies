@@ -1,7 +1,7 @@
 package com.kajsoftware.movies.service;
 
 import com.kajsoftware.movies.entities.Movie;
-import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
+import com.kajsoftware.movies.controllers.request_body.MovieRequest;
 
 import java.util.List;
 import java.util.Optional;

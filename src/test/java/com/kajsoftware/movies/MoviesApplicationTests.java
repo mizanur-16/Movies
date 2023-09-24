@@ -1,15 +1,13 @@
 package com.kajsoftware.movies;
 
 import com.kajsoftware.movies.entities.Movie;
-import com.kajsoftware.movies.restControllers.MovieRestController;
-import com.kajsoftware.movies.restControllers.request_body.MovieRequest;
+import com.kajsoftware.movies.controllers.MovieRestController;
+import com.kajsoftware.movies.controllers.request_body.MovieRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
