@@ -29,7 +29,7 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public Optional<Movie> findMovieById(int id) {
+    public Optional<Movie> findMovieById(long id) {
         Optional<Movie> result = this.movieRepository.findById(id);
 
         Movie theMovie = null;
@@ -76,7 +76,7 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public String deleteMovieById(int id) {
+    public String deleteMovieById(long id) { // THIS WAS OUT OF REQUIREMENT.
         this.movieRepository.deleteById(id);
         return "Movie id: " + id + " DELETED";
     }

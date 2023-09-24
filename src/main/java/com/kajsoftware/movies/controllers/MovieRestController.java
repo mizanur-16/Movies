@@ -33,7 +33,6 @@ public class MovieRestController {
 
     @PostMapping("/movies")
     public ResponseEntity<Movie> createMovie(@RequestBody MovieRequest reqMovie) {
-        System.out.println("hi: " + reqMovie.toString());
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/movies").toUriString());
         return ResponseEntity.created(uri).body(this.movieService.saveMovie(reqMovie));
     }

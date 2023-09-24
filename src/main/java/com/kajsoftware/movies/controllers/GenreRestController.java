@@ -23,7 +23,4 @@ public class GenreRestController {
         return this.genreService.findAllGenres();
     }
 
-
-
-
 }
