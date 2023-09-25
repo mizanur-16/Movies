@@ -75,9 +75,4 @@ public class MovieServiceImpl implements MovieService{
         return this.movieRepository.save(newMovie);
     }
 
-    @Override
-    public String deleteMovieById(long id) { // THIS WAS OUT OF REQUIREMENT.
-        this.movieRepository.deleteById(id);
-        return "Movie id: " + id + " DELETED";
-    }
 }

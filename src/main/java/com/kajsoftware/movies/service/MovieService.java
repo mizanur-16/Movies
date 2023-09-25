@@ -10,5 +10,4 @@ public interface MovieService {
     List<Movie> findAllMovies();
     Optional<Movie> findMovieById(long id);
     Movie saveMovie(MovieRequest movie);
-    String deleteMovieById(long id);
 }

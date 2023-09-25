@@ -27,7 +27,7 @@ public class MovieRestController {
     }
 
     @GetMapping("/movies/{id}")
-    public Optional<Movie> getMovieDetail(@PathVariable int id) {
+    public Optional<Movie> getMovieDetail(@PathVariable long id) {
         return this.movieService.findMovieById(id);
     }
 
